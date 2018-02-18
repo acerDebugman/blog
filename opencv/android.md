@@ -32,8 +32,7 @@ List of devices attached
 
 ```
 在android stadio里就可以看到：  
-![show-devices](./media/adb-device.png) 
-
+![show-devices](adb-device.png) 
 
 
 reference:
