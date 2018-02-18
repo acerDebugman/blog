@@ -15,14 +15,12 @@ https://gist.github.com/xdamman/e4f713c8cd1a389a5917#file-install_ffmpeg_ubuntu-
 直接执行脚本，如果执行脚本出问题可自己下载ffmpeg源代码安装：
 cd ffmpeg/
 ./configure --enable-shared 
-(
-or 当遇到-pIC的错误的时候
+(或者当遇到-pIC的错误的时候, 执行:
 ./configure --enable-shared --disable-static
-}
+)
 make
 make install
 ```
-
 
 安装其他依赖库
 ```
@@ -82,9 +80,12 @@ http://mirrors.neusoft.edu.cn/android/repository/
 ```
 如果不方便修改地址，一个好的方式是先找到替代源的机器的ip，然后修改机器的hosts，
 讲dl.google.com指向到新的ip地址就可以了！！！  
-修改hosts的方式可以很好的做到欺骗啊！！ 这基本也是一种钓鱼的方式了！记住这方式，非常的好用  
-在各个阶段都可以做到系统的升级  
-
+修改hosts的方式可以很好的做到欺骗啊！！ 这基本也是一种钓鱼的方式了！
+记住这方式，非常的好用,这相当于一种反向代理了或者dynamic balance了，只要远程的服务是一样的(无状态的)，
+使用这种方式就可以很好的方便的解决安装各种软件安装问题。
+一个AI：  
+前段js的请求也可以这么做到负载均衡！
+负载均衡和timeout的研究
 
 # 安装摄像头驱动deepin安装摄像头驱动    
 这个后续再解决
