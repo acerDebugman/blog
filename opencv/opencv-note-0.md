@@ -1,8 +1,10 @@
 #opencv 初步认识
 opencv是图像处理的一个库，内部内置了非常多的图形和图像处理的算法接库.  
 ffmpeg是一个底层的视频处理编解码转换库,读取视频的时候，需要对每一帧图片的编解码进行转换,
-转换后opencv才能拿到每一帧的图片，然后才可以利用opencv里的算法库进行处理，
+转换后opencv才能拿到每一帧的图片，然后才可以利用opencv里的算法库进行处理,
 opencv的具体操作依赖ffmpeg的编解码转换.
+opencv的具体操作包括转换，对象跟踪，图像处理等
+
 
 # opencv 安装
 顺序执行以下命令:
@@ -11,15 +13,18 @@ apt-get install gtk2.0
 apt-get install libgtk2.0-dev
 apt-get install libv4l-dev
 ```
+安装ffmpeg:  
+安装完ffmpeg后，摄像头才相关的函数videoCapture(0)才会正常工作　　
+可以下载脚本执行:
+https://gist.github.com/xdamman/e4f713c8cd1a389a5917#file-install_ffmpeg_ubuntu-sh  
+如果执行脚本出问题可自己下载ffmpeg源代码安装:
 ```
-安装ffmpeg:
-https://gist.github.com/xdamman/e4f713c8cd1a389a5917#file-install_ffmpeg_ubuntu-sh
-直接执行脚本，如果执行脚本出问题可自己下载ffmpeg源代码安装：
 cd ffmpeg/
 ./configure --enable-shared 
-(或者当遇到-pIC的错误的时候, 执行:
+```
+或者当后续的安装遇到-pIC的错误的时候, 需要重新编译执行ffmpeg:
+```
 ./configure --enable-shared --disable-static
-)
 make
 make install
 ```

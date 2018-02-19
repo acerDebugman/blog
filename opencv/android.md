@@ -105,7 +105,7 @@ adb shell input keyevent KEYCODE_3 //数字３
 ```
 
 ### adb 找不到手机问题
-android已经开启了developer 模式　　
+android已经开启了developer模式　　
 adb 需要手动启动，但是手动启动后，还是没发现连接的android实体机器, 
 执行命令：
 ```
@@ -148,6 +148,26 @@ root@algo-PC:/home/algo/PycharmProjects/blog/opencv# adb start-server
 ```
 sudo chmod a+s adb
 ```
+
+# 开发者选项指针屏幕参数含义　　
+![screen-args](media/screen-args.png)
+图片中参数的含义,(红色都表示稳定值,这个不是很清楚)：  
+p:point按压的触点数  
+dx,dy:x,y坐标系值  
+xv,yv:x,y上的触点运动速度  
+Prs: 按的压力值，红色表示稳定
+size: 
+
+
+# deepin遇到问题bus总线错误问题
+```
+ Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+```
+解决：
+```
+sudo apt-get install at-spi2-core
+```
+
 
 Reference:  
 http://blog.csdn.net/encourage2011/article/details/53525297
