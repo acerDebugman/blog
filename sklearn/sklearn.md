@@ -11,5 +11,9 @@ sklearn.datasets模块主要提供了一些导入、在线下载及本地生成�
 
 
 
-http://blog.csdn.net/luoganttcc/article/details/64440091
 
+http://blog.csdn.net/luoganttcc/article/details/64440091
+https://blog.csdn.net/lilong117194/article/details/78399568
+
+PAC:
+http://blog.codinglabs.org/articles/pca-tutorial.html
