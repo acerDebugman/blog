@@ -90,4 +90,22 @@ computed 属性通过监测函数上下文涉及变量的变动来触发compute�
 使用类似python的decorator吗? 估计是的,或者说是类似的方法!
 
 
+## 自适应的屏幕宽度的css
+<el-container style="border:0px solid #f00;height:calc(100vh - 60px - 40px)">
+</el-container>
+
+#实现下载
+```
+return axios.post('/api/v2/media/download', params, {responseType:"arraybuffer"}).then((resp)=> {
+  let blob = new Blob([resp.data], {type:"text/csv"})
+  let url = window.URL.createObjectURL(blob)
+  let link = document.createElement('a')
+  link.style.display = 'none'
+  link.href = url
+  link.setAttribute('download',
+      new Date().toISOString().substring(0,10).split("-").join("") + "_media.csv")
+  document.body.appendChild(link)
+  link.click()
+})
+```
 

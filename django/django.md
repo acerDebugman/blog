@@ -20,4 +20,15 @@ pip install mysql-connector
 pip install mysqlclient
 ```
 
+###django中获取cursor进行sql直接执行
+
+```
+with transaction.atomic():
+            cursor = connection.cursor()
+            cursor.execute("select * from t_test_table")
+
+```
+
+
+
 

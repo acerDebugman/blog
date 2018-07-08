@@ -19,3 +19,17 @@ methods: {
 
 reference:
 https://lodash.com/
+
+# vue-cookie使用
+```
+npm install vue-cookie --save
+import VueCookie from 'vue-cookie'
+Vue.use(VueCookie)
+```
+
+外部js引用
+```
+import $cookie from 'vue-cookie'
+$cookie.set('userName', 'aaa111') // 设置 cookie
+console.log($cookie.get('userName')) // 读取 cookie
+```

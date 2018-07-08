@@ -42,6 +42,9 @@ algo@algo-PC:~/IdeaProjects/isov/isov_admin_front$ cat ../.git/refs/heads/dev-2.
 0716b09e8b713a5c133dc9e8e20f535bec5f576b
 ```
 
-
-
-
+# 保持已经被tracked的文件被忽略的方法
+该方法一旦别人修改并提交过,当自己git pull后,就会重新被track,改方法主要用于修改大文件
+```
+git update-index --assume-unchanged <PATH>
+git update-index --no-assume-unchanged <PATH>
+```
