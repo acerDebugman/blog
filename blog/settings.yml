@@ -1,0 +1,32 @@
+title: gcalgoz博客
+author: Joe Zhang
+description: >
+  gcalgoz个人博客 
+language: zh
+keywords: book,website,generator,static,html,css,js,theme,rust
+directory:
+  theme: theme
+  input: book
+  output: docs
+port: 2478
+theme: typikon-theme
+icon: /assets/icon.png
+custom_css:
+  - /assets/css/bootstrap.min.css
+  - /assets/typikon.css
+custom_js:
+  - /assets/js/bootstrap.min.js
+  - /assets/js/bootstrap.bundle.js
+  - /assets/js/fuse.min.js
+highlight:
+  - c
+  - java
+  - rust
+  - cpp
+  - kotlin
+  - python
+  - csharp
+  - css
+  - swift
+  - bash
+  - javascript

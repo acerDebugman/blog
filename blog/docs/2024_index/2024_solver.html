@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>gcalgoz博客</title>
+	<meta name="description" content="gcalgoz个人博客 
+">
+	<meta name="keywords" content="book,website,generator,static,html,css,js,theme,rust">
+	<meta name="generator" content="typikon">
+	<meta name="template" content="typikon-theme">
+
+	
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="/assets/typikon.css">
+	
+	<!-- Light theme stylesheet -->
+	<link rel="stylesheet" href="/assets/light-theme.css" id="light-theme">
+	<!-- Dark theme stylesheet (initially disabled) -->
+	<link rel="stylesheet" href="/assets/dark-theme.css" id="dark-theme" disabled>
+
+	<link rel="icon" href="/assets/icon.png" type="image/png">
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-sm-12">
+				<div class="flex-shrink-0 p-2" style="width: 100%;">
+					<a href="/index.html"
+						class="d-flex align-items-center justify-content-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+						<span class="fs-4 fw-semibold">gcalgoz博客</span>
+					</a>
+					<div class="input-group mb-3 pb-3 border-bottom">
+						<span class="input-group-text" id="basic-addon1">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+								class="bi bi-search" viewBox="0 0 16 16">
+								<path
+									d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0">
+								</path>
+							</svg>
+						</span>
+						<input type="text" class="form-control" id="search-text" placeholder="Full text search..."
+							aria-describedby="basic-addon1">
+					</div>
+					<ul class="list-unstyled ps-0" id="chapterList">
+						
+						<li class="mb-1">
+							<a class="btn d-inline-flex align-items-center rounded border-0"
+								href="/2024_index/index.html">
+								2024年
+							</a>
+							<div class="collapse show" id="collapse1">
+								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+									
+									<li>
+										<a href="/2024_index/2024_rust_use_simd.html"
+											class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+											rust使用simd
+										</a>
+									</li>
+									
+									<li>
+										<a href="/2024_index/2024_k-means.html"
+											class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+											k-means算法
+										</a>
+									</li>
+									
+									<li>
+										<a href="/2024_index/2024_solver.html"
+											class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+											简单求解器实现
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						</li>
+						
+						<li class="border-top my-3"></li>
+						<li class="mb-3 mb-md-0 text-body-secondary">Copyright © Typikon Inc</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-8 col-sm-12">
+				<div id="markdown-content">
+					<h2>求解器</h2>
+<p>未完待续…</p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="/assets/highlight/highlight.min.js"></script>
+
+	
+	<script src="/assets/highlight/languages/c.min.js"></script>
+	
+	<script src="/assets/highlight/languages/java.min.js"></script>
+	
+	<script src="/assets/highlight/languages/rust.min.js"></script>
+	
+	<script src="/assets/highlight/languages/cpp.min.js"></script>
+	
+	<script src="/assets/highlight/languages/kotlin.min.js"></script>
+	
+	<script src="/assets/highlight/languages/python.min.js"></script>
+	
+	<script src="/assets/highlight/languages/csharp.min.js"></script>
+	
+	<script src="/assets/highlight/languages/css.min.js"></script>
+	
+	<script src="/assets/highlight/languages/swift.min.js"></script>
+	
+	<script src="/assets/highlight/languages/bash.min.js"></script>
+	
+	<script src="/assets/highlight/languages/javascript.min.js"></script>
+	
+
+	
+	<script src="/assets/js/bootstrap.min.js"></script>
+	
+	<script src="/assets/js/bootstrap.bundle.js"></script>
+	
+	<script src="/assets/js/fuse.min.js"></script>
+	
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			initTheme();
+			initializeSearch();
+		});
+
+		function initTheme() {
+			const darkThemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+			const lightThemeLink = document.getElementById('light-theme');
+			const darkThemeLink = document.getElementById('dark-theme');
+
+			const changeTheme = (mediaQuery) => {
+				if (mediaQuery.matches) {
+					lightThemeLink.setAttribute('disabled', true);
+					darkThemeLink.removeAttribute('disabled');
+				} else {
+					darkThemeLink.setAttribute('disabled', true);
+					lightThemeLink.removeAttribute('disabled');
+				}
+			};
+
+			changeTheme(darkThemeMediaQuery);
+			darkThemeMediaQuery.addListener(changeTheme);
+
+			document.querySelectorAll('pre code').forEach((block) => {
+				hljs.highlightElement(block);
+			});
+
+			var markdownContent = document.getElementById('markdown-content');
+			if (markdownContent) {
+				var paragraphs = markdownContent.querySelectorAll('p');
+				paragraphs.forEach((paragraph) => {
+					paragraph.classList.add('md-p');
+				});
+			}
+		}
+
+		function initializeSearch() {
+			fetch('/data.json')
+				.then(response => response.json())
+				.then(data => {
+					const options = {
+						keys: ['title', "content"],
+						includeScore: true,
+						tokenize: true,
+						threshold: 0.3,
+						tokenSeparator: /[,|，|。]/
+					};
+
+					const fuse = new Fuse(data, options);
+					const chapterList = document.getElementById('chapterList');
+					// 复制一份复原使用
+					let innerHTML = chapterList.innerHTML;
+					function performSearch() {
+						const query = document.getElementById('search-text').value.trim();
+						const results = fuse.search(query);
+
+						// 设置显示菜单和搜索结果，如果没有搜索结果就显示菜单，有则反之
+						chapterList.innerHTML = results.length <= 0 ? chapterList.innerHTML = innerHTML : '';
+
+						// 遍历搜索结果并生成对应的 HTML
+						results.forEach(result => {
+							const sub_chapter = result.item; // 假设每个搜索结果是 sub_chapter 对象
+
+							// 构建章节和子章节的列表项 HTML
+							const listItem = `
+								<li class="mb-1">
+									<div class="collapse show" id="collapse1">
+										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+											<li>
+												<a href="${sub_chapter.url}"
+												class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+													${sub_chapter.title}
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+        					`;
+
+							// 将拼接好的章节列表项添加到章节列表容器
+							chapterList.innerHTML += listItem;
+						});
+					}
+
+					const searchInput = document.getElementById('search-text');
+					searchInput.addEventListener('input', performSearch);
+				})
+				.catch(error => console.error('Error fetching data:', error));
+		}
+	</script>
+</body>
+
+</html>

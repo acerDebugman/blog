@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "url": "/index.html",
+    "title": "gcalgoz博客",
+    "content": "<h2>algoz博客</h2>\n<p>将会列出所学所想</p>\n<p>简单测试：</p>\n<p><img src=\"/home/algo/rust_workspace/lamp/blog/blog/book/assets/image-20240808181356226.png\" alt=\"image-20240808181356226\" /></p>\n<p>abc</p>\n<p>$$\nc = a &gt; b\\sqrt{a}\n$$</p>\n<p>math</p>\n"
+  },
+  {
+    "id": 2,
+    "url": "/2024_index/index.html",
+    "title": "2024年",
+    "content": "<h2>2024年文章索引</h2>\n<p>2024年文章索引</p>\n"
+  },
+  {
+    "id": 3,
+    "url": "/2024_index/2024_rust_use_simd.html",
+    "title": "rust使用simd",
+    "content": "<h2>rust使用simd</h2>\n<p>使用simd有很多种方法。</p>\n<p>未完待续…</p>\n"
+  },
+  {
+    "id": 4,
+    "url": "/2024_index/2024_k-means.html",
+    "title": "k-means算法",
+    "content": "<h2>k-means 算法</h2>\n<p>未完待续…</p>\n"
+  },
+  {
+    "id": 5,
+    "url": "/2024_index/2024_solver.html",
+    "title": "简单求解器实现",
+    "content": "<h2>求解器</h2>\n<p>未完待续…</p>\n"
+  }
+]

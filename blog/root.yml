@@ -1,0 +1,11 @@
+path: index.md
+chapters:
+  - title: 2024年
+    path: 2024_index.md
+    sub_chapters:
+      - title: rust使用simd
+        path: 2024_rust_use_simd.md
+      - title: k-means算法
+        path: 2024_k-means.md
+      - title: 简单求解器实现
+        path: 2024_solver.md

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Typikon Book</title>
+	<meta name="description" content="Typikon name derived from Typikon Book, the a static website rendering tool similar to mdbook and hugo, but it focuses only on rendering markdown into an online book, and is easier to use than the other tools.
+">
+	<meta name="keywords" content="typikon,book,website,generator,static,html,css,js,theme,rust">
+	<meta name="generator" content="typikon">
+	<meta name="template" content="typikon-theme">
+
+	
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="/assets/typikon.css">
+	
+	<!-- Light theme stylesheet -->
+	<link rel="stylesheet" href="/assets/light-theme.css" id="light-theme">
+	<!-- Dark theme stylesheet (initially disabled) -->
+	<link rel="stylesheet" href="/assets/dark-theme.css" id="dark-theme" disabled>
+
+	<link rel="icon" href="/assets/icon.png" type="image/png">
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-sm-12">
+				<div class="flex-shrink-0 p-2" style="width: 100%;">
+					<a href="/index.html"
+						class="d-flex align-items-center justify-content-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+						<span class="fs-4 fw-semibold">Typikon Book</span>
+					</a>
+					<div class="input-group mb-3 pb-3 border-bottom">
+						<span class="input-group-text" id="basic-addon1">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+								class="bi bi-search" viewBox="0 0 16 16">
+								<path
+									d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0">
+								</path>
+							</svg>
+						</span>
+						<input type="text" class="form-control" id="search-text" placeholder="Full text search..."
+							aria-describedby="basic-addon1">
+					</div>
+					<ul class="list-unstyled ps-0" id="chapterList">
+						
+						<li class="mb-1">
+							<a class="btn d-inline-flex align-items-center rounded border-0"
+								href="/english/index.html">
+								English
+							</a>
+							<div class="collapse show" id="collapse1">
+								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+									
+									<li>
+										<a href="/english/introduce.html"
+											class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+											Introduce
+										</a>
+									</li>
+									
+									<li>
+										<a href="/english/quickstart.html"
+											class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+											Quick Start
+										</a>
+									</li>
+									
+									<li>
+										<a href="/english/settings.html"
+											class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+											Settings
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						</li>
+						
+						<li class="mb-1">
+							<a class="btn d-inline-flex align-items-center rounded border-0"
+								href="/chinese/index.html">
+								简体中文
+							</a>
+							<div class="collapse show" id="collapse1">
+								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+									
+									<li>
+										<a href="/chinese/introduce-zh.html"
+											class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+											概述介绍
+										</a>
+									</li>
+									
+									<li>
+										<a href="/chinese/quickstart-zh.html"
+											class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+											快速开始
+										</a>
+									</li>
+									
+									<li>
+										<a href="/chinese/settings-zh.html"
+											class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+											自定义设置
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						</li>
+						
+						<li class="border-top my-3"></li>
+						<li class="mb-3 mb-md-0 text-body-secondary">Copyright © Typikon Inc</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-8 col-sm-12">
+				<div id="markdown-content">
+					<h2>Quick Start</h2>
+<p>To use the Typikon program, you must first install Typikon on your computer. During the installation process, download the appropriate binary package for your computer’s version from the <a href="https://github.com/auula/typikon/releases">release page</a>. Once you have downloaded the Typikon binary zip package to your computer:</p>
+<blockquote>
+<p>Before using Typikon, ensure that your computer is successfully connected to the international internet. If you are in mainland China, you may encounter issues creating a working directory. If this happens, try using acceleration or enabling proxy software before using Typikon to initialize the directory.</p>
+</blockquote>
+<p>After downloading the zip binary package, unzip it using <code>unzip</code> or another decompression software. For example:</p>
+<pre><code class="language-shell">unzip typikon-macos-amd64.zip -d /usr/local/bin
+chmod +x /usr/local/bin/typikon
+</code></pre>
+<p>Then manually extract the binaries to the specified directory. If you want to use the Typikon program globally, you must add the path where Typikon is located to the environment variables of your computer’s operating system. For example:</p>
+<pre><code class="language-shell">export TYPIKON="/usr/local/bin"
+export PATH=$TYPIKON:$PATH
+</code></pre>
+<p>Remember to refresh the environment variables to ensure that Typikon can be used properly.</p>
+<hr />
+<h2>Getting Started</h2>
+<p>The typikon program provides four subcommands: <code>init</code> is used to initialize the working directory, <code>build</code> is used to generate static files, <code>serve</code> is used to start a static HTTP server for preview functionality, and <code>help</code> provides intelligent subcommand help information. When the typikon main program runs, the result is as follows:</p>
+<pre><code class="language-shell">$: typikon
+
+  _             _ _
+ | |_ _  _ _ __(_) |_____ _ _
+ |  _| || | '_ \ | / / _ \ ' \
+  \__|\_, | .__/_|_\_\___/_||_|
+      |__/|_|     v0.1.2
+
+Typikon lets you use markdown to write your online books.
+GitHub: http://typikonbook.github.io  License: Apache2.0
+
+
+Usage: typikon &lt;command&gt; [&lt;args&gt;...]
+
+The commands are:
+
+    init      Initialize to working directory
+    serve     Serve starting the static http server
+    build     Builder static html file and output to book
+
+Use typikon help &lt;command&gt; for more information about a command.
+
+</code></pre>
+<p>Before you start writing your book content, you need a clean directory to serve as the Typikon working directory. Execute the following command to create a new directory and initialize it:</p>
+<pre><code class="language-shell">$: mkdir example &amp;&amp; cd example &amp;&amp; typikon init
+</code></pre>
+<p>After initialization, the default working directory is example. Inside example, you will find several key subdirectories and files, but the most important are <code>settings.yml</code> and <code>root.yml</code>. In <code>root.yml</code>, you map your Markdown files to chapters in your book directory. For example:</p>
+<pre><code class="language-yaml"># Book root path mapping file
+path: index.md
+chapters:
+  - title: English
+    path: english.md
+    sub_chapters:
+      - title: Introduce
+        path: introduce.md
+      - title: Quick Start
+        path: quickstart.md
+      - title: Settings
+        path: settings.md
+  - title: 简体中文
+    path: chinese.md
+    sub_chapters:
+      - title: 概述介绍
+        path: introduce-zh.md
+      - title: 快速开始
+        path: quickstart-zh.md
+      - title: 自定义设置
+        path: settings-zh.md
+
+</code></pre>
+<p>Markdown files are stored by default in the <code>example/book</code> directory. The page you are currently reading is generated and rendered using this method.</p>
+<hr />
+<h3>Deployment</h3>
+<p>To deploy the rendered static files, which are by default stored in the <code>example/docs</code> directory after successful rendering, follow these steps to host them on <code>GitHub Pages</code> or <code>Cloudflare Pages</code>. If testing locally, you can use the live-server program to serve the static files locally.</p>
+<pre><code class="language-shell">$: typikon build
+
+  _             _ _
+ | |_ _  _ _ __(_) |_____ _ _
+ |  _| || | '_ \ | / / _ \ ' \
+  \__|\_, | .__/_|_\_\___/_||_|
+      |__/|_|     v0.1.1-beta
+
+Typikon lets you use markdown to write your online books.
+GitHub: http://typikonbook.github.io  License: Apache2.0
+
+[INFO]   2024/07/04 00:43:24 💬 Clean up output directory "docs" successful
+[INFO]   2024/07/04 00:43:24 💬 New create output directory "docs" successful
+[INFO]   2024/07/04 00:43:24 💬 Building static assets "docs/assets" successful
+[INFO]   2024/07/04 00:43:24 💬 Data written to file "docs/index.html" successful
+[INFO]   2024/07/04 00:43:24 💬 Loading markdown file "book/english.md" successful
+[INFO]   2024/07/04 00:43:24 💬 Loading markdown file "book/chinese.md" successful
+[INFO]   2024/07/04 00:43:24 💬 Folder created "docs/english" successful
+[INFO]   2024/07/04 00:43:24 💬 Data written to file "docs/english/index.html" successful
+[INFO]   2024/07/04 00:43:24 💬 Folder created "docs/chinese" successful
+[INFO]   2024/07/04 00:43:24 💬 Data written to file "docs/chinese/index.html" successful
+[INFO]   2024/07/04 00:43:24 💬 Loading markdown file "book/introduce.md" successful
+[INFO]   2024/07/04 00:43:24 💬 Loading markdown file "book/quickstart.md" successful
+[INFO]   2024/07/04 00:43:24 💬 Loading markdown file "book/settings.md" successful
+[INFO]   2024/07/04 00:43:24 💬 Loading markdown file "book/introduce-zh.md" successful
+[INFO]   2024/07/04 00:43:24 💬 Loading markdown file "book/quickstart-zh.md" successful
+[INFO]   2024/07/04 00:43:24 💬 Loading markdown file "book/settings-zh.md" successful
+[INFO]   2024/07/04 00:43:24 💬 Data written to file "docs/english/introduce" successful
+[INFO]   2024/07/04 00:43:24 💬 Data written to file "docs/english/quickstart" successful
+[INFO]   2024/07/04 00:43:24 💬 Data written to file "docs/english/settings" successful
+[INFO]   2024/07/04 00:43:24 💬 Data written to file "docs/chinese/introduce-zh" successful
+[INFO]   2024/07/04 00:43:24 💬 Data written to file "docs/chinese/quickstart-zh" successful
+[INFO]   2024/07/04 00:43:24 💬 Data written to file "docs/chinese/settings-zh" successful
+[INFO]   2024/07/04 00:43:24 💬 Rendering of static resource files complete 🎉
+</code></pre>
+<p>If you want to preview your website locally before deployment, use <code>live-server</code> to set up a local static server. Here’s how to run <code>live-server</code> :</p>
+<pre><code class="language-shell">$: live-server docs
+Serving "docs" at http://127.0.0.1:8080
+Ready for changes
+</code></pre>
+<p>Navigate to <code>http://127.0.0.1:8080</code> in your web browser to preview your website locally.</p>
+<p>This setup allows you to deploy your static website to a hosting service or test it locally using live-server for immediate feedback.</p>
+<hr />
+<h2>Built-in Service</h2>
+<p>In the new version <code>v0.1.2</code>, an HTTP static server is already built-in, providing preview functionality. You can start the static HTTP server using the <code>serve</code> command. The default listening port is <code>2478</code>. Access it in your browser at <code>http://127.0.0.1:2478</code> :</p>
+<pre><code class="language-shell">  _             _ _
+ | |_ _  _ _ __(_) |_____ _ _
+ |  _| || | '_ \ | / / _ \ ' \
+  \__|\_, | .__/_|_\_\___/_||_|
+      |__/|_|     v0.1.2
+
+Typikon lets you use markdown to write your online books.
+GitHub: http://typikonbook.github.io  License: Apache2.0
+
+[INFO]   2024/07/08 14:32:04 💬 Starting HTTP server on port 2478
+</code></pre>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="/assets/highlight/highlight.min.js"></script>
+
+	
+	<script src="/assets/highlight/languages/c.min.js"></script>
+	
+	<script src="/assets/highlight/languages/java.min.js"></script>
+	
+	<script src="/assets/highlight/languages/rust.min.js"></script>
+	
+	<script src="/assets/highlight/languages/cpp.min.js"></script>
+	
+	<script src="/assets/highlight/languages/kotlin.min.js"></script>
+	
+	<script src="/assets/highlight/languages/python.min.js"></script>
+	
+	<script src="/assets/highlight/languages/csharp.min.js"></script>
+	
+	<script src="/assets/highlight/languages/css.min.js"></script>
+	
+	<script src="/assets/highlight/languages/swift.min.js"></script>
+	
+	<script src="/assets/highlight/languages/bash.min.js"></script>
+	
+	<script src="/assets/highlight/languages/javascript.min.js"></script>
+	
+
+	
+	<script src="/assets/js/bootstrap.min.js"></script>
+	
+	<script src="/assets/js/bootstrap.bundle.js"></script>
+	
+	<script src="/assets/js/fuse.min.js"></script>
+	
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			initTheme();
+			initializeSearch();
+		});
+
+		function initTheme() {
+			const darkThemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+			const lightThemeLink = document.getElementById('light-theme');
+			const darkThemeLink = document.getElementById('dark-theme');
+
+			const changeTheme = (mediaQuery) => {
+				if (mediaQuery.matches) {
+					lightThemeLink.setAttribute('disabled', true);
+					darkThemeLink.removeAttribute('disabled');
+				} else {
+					darkThemeLink.setAttribute('disabled', true);
+					lightThemeLink.removeAttribute('disabled');
+				}
+			};
+
+			changeTheme(darkThemeMediaQuery);
+			darkThemeMediaQuery.addListener(changeTheme);
+
+			document.querySelectorAll('pre code').forEach((block) => {
+				hljs.highlightElement(block);
+			});
+
+			var markdownContent = document.getElementById('markdown-content');
+			if (markdownContent) {
+				var paragraphs = markdownContent.querySelectorAll('p');
+				paragraphs.forEach((paragraph) => {
+					paragraph.classList.add('md-p');
+				});
+			}
+		}
+
+		function initializeSearch() {
+			fetch('/data.json')
+				.then(response => response.json())
+				.then(data => {
+					const options = {
+						keys: ['title', "content"],
+						includeScore: true,
+						tokenize: true,
+						threshold: 0.3,
+						tokenSeparator: /[,|，|。]/
+					};
+
+					const fuse = new Fuse(data, options);
+					const chapterList = document.getElementById('chapterList');
+					// 复制一份复原使用
+					let innerHTML = chapterList.innerHTML;
+					function performSearch() {
+						const query = document.getElementById('search-text').value.trim();
+						const results = fuse.search(query);
+
+						// 设置显示菜单和搜索结果，如果没有搜索结果就显示菜单，有则反之
+						chapterList.innerHTML = results.length <= 0 ? chapterList.innerHTML = innerHTML : '';
+
+						// 遍历搜索结果并生成对应的 HTML
+						results.forEach(result => {
+							const sub_chapter = result.item; // 假设每个搜索结果是 sub_chapter 对象
+
+							// 构建章节和子章节的列表项 HTML
+							const listItem = `
+								<li class="mb-1">
+									<div class="collapse show" id="collapse1">
+										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+											<li>
+												<a href="${sub_chapter.url}"
+												class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+													${sub_chapter.title}
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+        					`;
+
+							// 将拼接好的章节列表项添加到章节列表容器
+							chapterList.innerHTML += listItem;
+						});
+					}
+
+					const searchInput = document.getElementById('search-text');
+					searchInput.addEventListener('input', performSearch);
+				})
+				.catch(error => console.error('Error fetching data:', error));
+		}
+	</script>
+</body>
+
+</html>

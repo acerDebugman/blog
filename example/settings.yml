@@ -1,0 +1,34 @@
+title: Typikon Book
+author: Leon Ding
+description: >
+  Typikon name derived from Typikon Book, the a static website rendering tool
+  similar to mdbook and hugo, but it focuses only on rendering markdown into
+  an online book, and is easier to use than the other tools.
+language: en
+keywords: typikon,book,website,generator,static,html,css,js,theme,rust
+directory:
+  theme: theme
+  input: book
+  output: docs
+port: 2478
+theme: typikon-theme
+icon: /assets/icon.png
+custom_css:
+  - /assets/css/bootstrap.min.css
+  - /assets/typikon.css
+custom_js:
+  - /assets/js/bootstrap.min.js
+  - /assets/js/bootstrap.bundle.js
+  - /assets/js/fuse.min.js
+highlight:
+  - c
+  - java
+  - rust
+  - cpp
+  - kotlin
+  - python
+  - csharp
+  - css
+  - swift
+  - bash
+  - javascript
